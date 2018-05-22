@@ -1,0 +1,76 @@
+//Bank transaction only on withdrawal
+
+class AccountName { //class
+    public void name(){
+        print("The account name is correct");
+    }
+}
+
+class Signature{
+    public void sketch(){
+        print ("Signature matched");
+    }
+}
+
+class AccountNo{
+    public void suitable(){
+        print("This is a valid number");
+    }
+}
+
+class ATMPin{
+    public void match(){
+        print("Yeah! 3934 is a valid number");
+    }
+}
+
+class Withdraw { 
+    public AcctName AcctName;
+    public ATMPin ATMPin;
+    public Signature Signature;
+    public AcctNo AcctNo;
+    public Withdraw(AcctName acctname, Signature signature, AcctNo, acctno) //first constructor for withdraw class
+    {
+        this.AcctName = acctname;
+        this.Signature = signature;
+        this.AcctNo = acctno;
+
+    }
+    public Withdraw(ATMPin atmpin) //second constructor for withdraw class
+    {
+        this.ATMPin = atmpin;
+        
+    }
+    public void Debite()
+    {
+        if(this.ATMPin == null)
+        {
+            this.AcctName.name();
+            this.Signature.sketch();
+            this.AcctNo.valid();
+            print("Withdrawed using withdrawal slip");
+        }
+         else
+        {
+            this.ATMPin.match();
+            print("withdrawed using ATMPin");
+        }
+    }
+}
+
+class BankTransaction {
+    static void Main(string[] args){
+        //instanctiating all classes
+        AcctName myName = new AcctName();
+        Signature mySign = new Signature();
+        AcctNo myNumber = new AcctNo();
+        ATMPin myPin = new ATMPin();
+        Withdraw makeWithdrawal = new Withdrawal(myName, mySign, myNumber);
+
+        makeWithdrawal.debite();
+
+    }
+}
+
+
+print("you have been debited with #40884848")
